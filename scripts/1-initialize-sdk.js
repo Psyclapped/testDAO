@@ -1,29 +1,26 @@
 import { ThirdwebSDK } from "@thirdweb-dev/sdk";
 import ethers from "ethers";
 
-// Importing and configing our .env file that
-// we use to securely store our environment variables
+// Importing and configuring our .env file that we use to securely store our environment variables
 import dotenv from "dotenv";
 dotenv.config();
 
-// some quick checks to make sure our .env is working
+// Some quick checks to make sure our .env is working.
 if (!process.env.PRIVATE_KEY || process.env.PRIVATE_KEY === "") {
-  console.log("Private key not found.");
+  console.log("🛑 Private key not found.");
 }
 
 if (!process.env.ALCHEMY_API_URL || process.env.ALCHEMY_API_URL === "") {
-  console.log("Alchemy API URL not found.");
+  console.log("🛑 Alchemy API URL not found.");
 }
 
 if (!process.env.WALLET_ADDRESS || process.env.WALLET_ADDRESS === "") {
-  console.log("Wallet address not found.");
+  console.log("🛑 Wallet Address not found.");
 }
 
-// RPC URL, we'll use our alchemy api url from our .env file.
+// RPC URL, we'll use our Alchemy API URL from our .env file.
 const provider = new ethers.providers.JsonRpcProvider(process.env.ALCHEMY_API_URL);
-// your wallet private key.
-// always keep this private, do not share it with anyone,
-// add it to your .env file and don't commit that to github
+// Your wallet private key. ALWAYS KEEP THIS PRIVATE, DO NOT SHARE IT WITH ANYONE, add it to your .env file and do not commit that file to github!
 const wallet = new ethers.Wallet(process.env.PRIVATE_KEY, provider);
 const sdk = new ThirdwebSDK(wallet);
 
@@ -37,6 +34,5 @@ const sdk = new ThirdwebSDK(wallet);
   }
 })();
 
-// we're exporting the initialized thirdweb sdk so that
-// we can use it in our other scripts
+// We are exporting the initialized thirdweb SDK so that we can use it in our other scripts
 export default sdk;
