@@ -1,4 +1,4 @@
-# buildspace x thirdweb - Build your own DAO with just Javascript
+# buildspace x thirdweb --- Build your own DAO with just Javascript
 
 ### **Welcome 👋**
 To get started with this project, clone this repo and follow these commands:
